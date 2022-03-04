@@ -8,11 +8,14 @@ class TodosList{
         {id: '002', name:'sleeping', done: true},
         {id: '003', name:'learning', done: false}
       ]
-    //   count = 0;
+
+    filter = {status: 'All'}
+
     constructor(){
         // response reflection
         makeAutoObservable(this, {
           todos: observable,
+          filter: observable,
 
           addTodo: action,
           deleteTodo: action,
@@ -37,9 +40,12 @@ class TodosList{
      return this.todos.reduce((pre, current) => pre + (current.done? 1: 0), 0) 
     }
 
+    changeFilter = (newStatus) =>{
+      this.filter.status = newStatus; 
+    }
+
     addTodo =(name) => {
         const newTodo = {id: uuidv4(), name, done: false}
-        //  this.todos = [newTodo,...this.todos]
         this.todos.push(newTodo);
       }
     
@@ -66,13 +72,6 @@ class TodosList{
         })
         this.todos = newTodos;
       }
-
-      // getFinished = () =>{
-      //   const newTodos = this.todos.filter((item)=>{
-      //     return !item.done 
-      //   })
-      //   this.todos = newTodos;
-      // }
     
       updateAll = (status)=>{
         const newTodos = this.todos.map((item)=>{

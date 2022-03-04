@@ -1,8 +1,13 @@
 import React, { Component, useState } from 'react'
 import './index.css'
+import styled from "styled-components";
 import todosListStore from '../../store/todosListStore'
-import {observer} from 'mobx-react-lite'
+import {Button} from '../styles/Button.styled'
 
+export const StyledItem = styled.span`
+    text-decoration: ${({status})=> status? "line-through" : 'none'};
+    opacity: ${({status})=> status? 0.5 : 1};
+`
 
 function Item(props) {
     const {todo} = props
@@ -25,9 +30,9 @@ function Item(props) {
             <li onMouseEnter= {()=> setHover(true)} onMouseLeave={()=> setHover(false)}>
                 <label htmlFor={todo.id}>
                     <input id = {todo.id} type="checkbox" checked={todo.done} onChange={handleCheck(todo.id)}/>
-                    <span style={{textDecoration:todo.done? 'line-through': 'none'}}>{todo.name}</span>
+                    <StyledItem status={todo.done}>{todo.name}</StyledItem>
                 </label>
-                <button className="btn btn-danger"  style={{display: hover ? 'block': 'none'}}onClick={()=>handleDelete(todo.id)}>Delete</button>
+                <Button bg="#ff0015" color="#fff" style={{display: hover ? 'block': 'none'}}onClick={()=>handleDelete(todo.id)}>Delete</Button>
             </li>
         
     )

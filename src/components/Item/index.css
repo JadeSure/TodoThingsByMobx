@@ -29,12 +29,7 @@ li {
     position: relative;
     top: -1px;
   }
-  
-  
-  li:before {
-    content: initial;
-  }
-  
+
   li:last-child {
     border-bottom: none;
   }

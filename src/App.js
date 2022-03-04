@@ -16,9 +16,6 @@ function App() {
       <div className="todo-container">
             <Header />
         <div className = "todo-wrap">
-          {/* {todosListStore.todos.map(item =>{
-            return <li key={item.id}>{item.name}</li>
-          })} */}
             <List />
           <Footer />
         </div>

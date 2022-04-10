@@ -23,5 +23,11 @@ color: ${({ color }) => color || "#333"};
   }
 `;
 
+export const ButtonDanger = styled(Button)`
+color: #fff;
+background-color: #ff0015;
+flex: 2;
+`
+
 
 

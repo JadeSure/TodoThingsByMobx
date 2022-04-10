@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react'
 import './index.css'
 import styled from "styled-components";
 import todosListStore from '../../store/todosListStore'
-import {Button} from '../styles/Button.styled'
+import {Button, ButtonDanger} from '../styles/Button.styled'
 
 export const StyledItem = styled.span`
     text-decoration: ${({status})=> status? "line-through" : 'none'};
@@ -32,7 +32,7 @@ function Item(props) {
                     <input id = {todo.id} type="checkbox" checked={todo.done} onChange={handleCheck(todo.id)}/>
                     <StyledItem status={todo.done}>{todo.name}</StyledItem>
                 </label>
-                <Button bg="#ff0015" color="#fff" style={{display: hover ? 'block': 'none'}}onClick={()=>handleDelete(todo.id)}>Delete</Button>
+                <ButtonDanger style={{display: hover ? 'block': 'none'}}onClick={()=>handleDelete(todo.id)}>Delete</ButtonDanger>
             </li>
         
     )

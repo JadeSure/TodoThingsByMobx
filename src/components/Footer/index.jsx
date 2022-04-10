@@ -2,7 +2,7 @@ import React from 'react'
 import './index.css'
 import todosListStore from '../../store/todosListStore'
 import { observer } from 'mobx-react-lite';
-import {Button} from '../styles/Button.styled'
+import {Button, ButtonDanger} from '../styles/Button.styled'
 
 
 function Footer() {
@@ -29,7 +29,7 @@ function Footer() {
                     <Button value="Completed" bg="#1eff00" color="#0c0c0c" onClick={finished}>Completed</Button>
                     <Button value="Active" bg="#4400ff" color="#fff" onClick={finished}>Active</Button>
                     <Button value="All" bg="#00ff95" color="#0c0c0c" onClick={finished}>All</Button>
-                    <Button bg="#ff0015" color="#fff" onClick={deleteAllFinished}>Clear completed</Button>
+                    <ButtonDanger onClick={deleteAllFinished}>Clear completed</ButtonDanger>
                 </div>
             </div>
         )
